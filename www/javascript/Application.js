@@ -117,7 +117,7 @@ function statique() {
 		}
 		// trying to reconnect
 		this.wsAttempts++;
-		this.wsConnection = new WebSocket('ws://'+document.location.hostname+':8124');
+		this.wsConnection = new WebSocket('ws://'+document.location.hostname+':80');
 		// adding a tiemout
 		this.timeout=setTimeout(function() {
 			if(this.wsAttempts>0) {

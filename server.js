@@ -24,7 +24,7 @@ const MIME_TYPES={
 
 // Global vars
 var rootDirectory=__dirname+'/www', // default directory
-	domain='127.0.0.1',
+	domain='memory.insertafter.com',
 	port=8124;
 
 
@@ -217,14 +217,9 @@ var httpServer=http.createServer(function (request, response) {
 			} else {
 				code=200;
 			}
-			// on envoi le code et les entêtes
+			// sending code and headers
 			response.writeHead(code, headers);
-			// si la méthode est GET alors on envoi
-			// aussi le msgContent du fichier
 			if('GET'===request.method) {
-				// on transvase le flux de lecture
-				// en prenant soin d'indiquer la
-				// plage d'octets concernés 
 				fs.createReadStream(rootDirectory
 				+parsedUrl.pathname,{start: start, end: end})
 				.pipe(response);
@@ -250,7 +245,9 @@ var wsServer = new ws({
 wsServer.on('request', function(request) {
 	// reject bad origin requests
 	if(-1===request.origin.indexOf('http://127.0.0.1:'+port)
-		&&-1===request.origin.indexOf('http://'+domain+':'+port)) {
+		&&-1===request.origin.indexOf('http://'+domain+':'+port)
+		&&-1===request.origin.indexOf('http://'+domain+':80')
+		&&-1===request.origin.indexOf('http://'+domain)) {
 		console.log(new Date()+': Connection origin rejected ('+request.origin+').');
 		request.reject();
 		return;
