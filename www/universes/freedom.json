@@ -1,0 +1,11 @@
+{"image":"freedom.png",
+	"width":"45",
+	"cards":[
+		{"color":"FFF","text":"Firefox"},
+		{"color":"FFF","text":"Linux"},
+		{"color":"FFF","text":"Debian"},
+		{"color":"FFF","text":"Apache"},
+		{"color":"FFF","text":"GNU"},
+		{"color":"FFF","text":"FranceJS"}
+	]
+}

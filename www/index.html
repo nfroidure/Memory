@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html manifest="application.manifest" >
+<head>
+	<meta charset="utf-8" />
+	<title>Memory : Find pairs !</title>
+	<meta name="description" content="A multiplayer memory game." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	<!-- Requirejs : uncomment for development -->
+	<script data-main="javascript/Application"
+		src="javascript/libs/requirejs/require.js" type="text/javascript"></script>
+	<!-- -->
+</head>
+<body>
+	<div class="app">
+		<div class="message"><p>-</p></div>
+		<div class="view" id="Home">
+			<h1>Memory</h1>
+			<ul class="menu">
+				<li><a href="app:changeView?view=Mono"
+					title="Play solo">Play</a></li>
+				<li><a href="app:changeView?view=Profile"
+					title="Play with others">Multiplayer</a></li>
+				<li><a href="app:changeView?view=Options"
+					title="Set game options">Options</a></li>
+				<li><a href="app:changeView?view=Credits"
+					title="View credits">Credits</a></li>
+				<li><a href="app:changeView?view=About"
+					title="Learn more about this game">About</a></li>
+			</ul>
+		</div>
+		<div class="view" id="Update">
+			<h1>Update</h1>
+			<p class="text">
+				A new version is now available, would you like to try her?
+			</p>
+			<p class="menu">
+					<a href="app:changeView?view=Home" title="Back to home">Cancel</a>
+					<a href="app:Update/update" title="Refresh the game">Update</a>
+			</p>
+		</div>
+		<div class="view" id="Options">
+			<h1>Options</h1>
+			<form action="app:Options/send">
+				<p>
+					<label>Sounds&nbsp;:<br />
+						<select id="sounds">
+							<option value="0" />&nbsp;Off</option>
+							<option value="1" selected="selected" />&nbsp;On</option>
+						</select>
+					<br /><br />
+					<label><input type="checkbox" value="1" id="fullscreen" /> Full screen</label>
+					<br /><br />
+					<input type="submit" value="Cancel" formaction="app:changeView?view=Home" />
+					<input type="submit" value="Save" />
+				</p>
+			</form>
+		</div>
+		<div class="view" id="Credits">
+			<h1>Credits</h1>
+			<p class="text">
+				Thanks to people who made this game possible:
+			</p>
+			<ul class="text">
+				<li>Sound applause&nbsp;: <a href="http://qubodup.net/"
+					title="View the author website">Iwan Gabovitch</a></li>
+				<li>Sound bad, alert1, alert2&nbsp;: <a href="http://opengameart.org/users/dklon"
+					title="View the author website">Devin Watson</a></li>
+				<li>Sound card1, card2, good, win&nbsp;: <a href="http://opengameart.org/users/dklon"
+					title="View the author website">Brandon Morris</a></li>
+				<li>Sound mountainman&nbsp;: <a href="http://opengameart.org/users/avgvst"
+					title="View the author website">A.J. Gillespie</a></li>
+			</ul>
+			<p class="menu"><a href="app:changeView?view=Home" title="Back to home">Back</a></p>
+		</div>
+		<div class="view" id="About">
+			<h1>About this game</h1>
+			<p class="text">
+				This Memory has been made by <a href="http://insertafter.com/blog.html">Nicolas Froidure</a>
+				to illustrate JavaScript/HTML5 application development in his book (french) you can find on
+				<a href="http://www.ma-editions.com/" title="Voir le site">MA Editions</a> website.
+			</p>
+			<p class="text">
+				You can reuse and/or modify it for educationnel purposes.
+			</p>
+			<p class="menu"><a href="app:changeView?view=Home" title="Back to home">Back</a></p>
+		</div>
+		<div class="view" id="Mono">
+			<ul class="infos">
+				<li><strong>Level&nbsp;: <span>1</span></strong></li>
+				<li><strong>Time left&nbsp;: <span>0'00</span></strong></li>
+				<li><strong>Attempts&nbsp;: <span>0</span></strong></li>
+			</ul>
+			<div class="cards">
+				<p><a href="app:Mono/reveal?card=1"><strong><span>Card 1</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=2"><strong><span>Card 2</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=3"><strong><span>Card 3</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=4"><strong><span>Card 4</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=5"><strong><span>Card 5</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=6"><strong><span>Card 6</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=7"><strong><span>Card 7</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=8"><strong><span>Card 8</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=9"><strong><span>Card 9</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=10"><strong><span>Card 10</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=11"><strong><span>Card 11</span></strong></a></p>
+				<p><a href="app:Mono/reveal?card=12"><strong><span>Card 12</span></strong></a></p>
+				<div class="separator"></div>
+			</div>
+			<p class="menu">
+				<a href="app:changeView?view=Home" title="Retour à l'accueil">Retour</a>
+				<a href="app:Mono/replay" title="Reset the game">Reset</a>
+			</p>
+		</div>
+		<div class="view" id="Profile">
+			<h1>Profil</h1>
+			<form action="app:Profile/send" data-change="app:Profile/changes">
+				<p>
+					<label>Name&nbsp;:<br />
+					<input type="text" name="user" required="required"
+						pattern="([^<>&quot;]+)" placeholder="Your name" maxlength="15" />
+					<br /><br />
+					<label>Photo 1&nbsp;:<br />
+					<img src="" alt="Profile photo" class="profile" /><br />
+					<input type="file" accept="image/*" name="photo" /></label><br />
+					<label>Photo 2&nbsp;:<br />
+					<img src="" alt="Second pair photo" class="profile" /><br />
+					<input type="file" accept="image/*" name="photo2" /></label><br />
+					<br /><br />
+					Gender&nbsp;:<br />
+					<label><input type="radio" name="genre" id="aucun" value="-1" checked="checked" />&nbsp;No matter</label>
+					<label><input type="radio" name="genre" id="male" value="1" />&nbsp;Male</label><br/>
+					<label><input type="radio" name="genre" id="female" value="0" />&nbsp;Female</label>
+					<br /><br />
+					<input type="submit" value="Cancel" formaction="app:changeView?view=Home" />
+					<input type="submit" value="Play" />
+				</p>
+			</form>
+		</div>
+		<div class="view" id="Network">
+			<h1>Network error</h1>
+			<p class="text">Encountered a network problem, please try to refresh.</p>
+			<p class="menu">
+				<a href="app:changeView?view=Home" title="Back to home">Back</a>
+			</p>
+		</div>
+		<div class="view" id="Rooms">
+			<h1>Rooms</h1>
+			<table>
+				<thead><tr>
+					<th>Name</th>
+					<th>Players</th>
+					<th>Type</th>
+				</tr></thead>
+				<tbody><tr><td><a href="app:Rooms/join?room=" title="Join this room">Room 1</a></td><td>0/3</td><td>Arcade</td></tr></tbody>
+			</table>
+			<p class="menu">
+				<a href="app:changeView?view=Accueil" title="Back to home">Back</a>
+				<a href="app:changeView?view=Profile" title="Change your profile">Profile</a>
+				<a href="app:changeView?view=NewRoom" title="Create a new room">New</a>
+				<a href="app:Rooms/reload" title="Refresh the rooms list">Rafraîchir</a>
+			</p>
+		</div>
+		<div class="view" id="Connection">
+			<h1>Connection</h1>
+			<p class="text">Please wait while connecting...</p>
+		</div>
+		<div class="view" id="Room">
+			<h1>Room name <span>0/3</span></h1>
+			<p class="chat"></p>
+			<form action="app:Room/send">
+				<p>
+					<label>Message&nbsp;:<br />
+					<input type="text" name="message" required="required"
+						placeholder="Enter a message" />
+					</label>
+					<input type="submit" value="Send" />
+				</p>
+			</form>
+			<p class="menu">
+				<a href="app:Room/quit" title="Back to rooms list">Exit</a>
+				<a href="app:Room/play" title="Start the game" disabled="disabled">Play</a>
+				<a href="app:Room/notification" title="Notify me when the game starts">Start notification</a>
+			</p>
+		</div>
+		<div class="view" id="NewRoom">
+			<h1>Create a room</h1>
+			<form action="app:NewRoom/envoi">
+				<p>
+					<label>Name&nbsp;:<br />
+					<input type="text" name="name" required="required"
+						placeholder="Room name" pattern="([^<>&quot;]+)" />
+					</label>
+					<input type="submit" value="Cancel" formaction="app:changeView?view=Rooms" />
+					<input type="submit" value="Send" />
+				</p>
+			</form>
+		</div>
+		<div class="view" id="Multi">
+			<ul class="infos">
+				<li><strong>Score&nbsp;: <span>0</span></strong></li>
+				<li><strong>Attempts&nbsp;: <span>0</span></strong></li>
+				<li><strong>Lives&nbsp;: <span>2</span></strong></li>
+			</ul>
+			<div class="cards">
+				<p><a href="app:Multi/reveal?card=1"><strong><span>Card 1</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=2"><strong><span>Card 2</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=3"><strong><span>Card 3</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=4"><strong><span>Card 4</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=5"><strong><span>Card 5</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=6"><strong><span>Card 6</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=7"><strong><span>Card 7</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=8"><strong><span>Card 8</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=9"><strong><span>Card 9</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=10"><strong><span>Card 10</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=11"><strong><span>Card 11</span></strong></a></p>
+				<p><a href="app:Multi/reveal?card=12"><strong><span>Card 12</span></strong></a></p>
+				<div class="separator"></div>
+			</div>
+		</div>
+	</div><div class="separator"></div></div>
+	<!-- Production : comment for development ->
+	<script src="javascript/production.js" type="text/javascript"></script>
+	<!-- -->
+</body>
+</html>

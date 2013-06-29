@@ -1,0 +1,10 @@
+{"cards":[
+	{"color":"000000", "text":"Black card"},
+	{"color":"00FF00", "text":"Green card"},
+	{"color":"0000FF", "text":"Blue card"},
+	{"color":"FF0000", "text":"Red card"},
+	{"color":"FFFF00", "text":"Yellow card"},
+	{"color":"FF00FF", "text":"Violet card"},
+	{"color":"00FFFF", "text":"Turquoise card"},
+	{"color":"FFFFFF", "text":"White card"}
+]}
