@@ -11,7 +11,7 @@ Requirements
 * NodeJS + npm install websocket
 * Libs : RequireJS, Commandor, Sounds.
 * Building :
-```sh
+```bash
 npm install -g requirejs
 cd www
 # Debug
@@ -20,13 +20,13 @@ r.js -o baseUrl=./javascript/ name=Application out=javascript/production.js opti
 r.js -o baseUrl=./javascript/ name=Application out=javascript/production.js
 ```
 * Testing :
-```sh
+```bash
 npm install -g request mocha; mocha tests/*.mocha.js
 ```
 
 Launching
 -------------
-```sh
+```bash
 node server.js
 ```
 
