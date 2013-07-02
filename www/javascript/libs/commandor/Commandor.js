@@ -186,10 +186,11 @@
 	return Commandor;
 
 });})(this,typeof define === 'function' && define.amd ? define : function (name, deps, factory) {
-	if(typeof name === 'Object') {
-		deps=name; factory=deps;
+	var root=this;
+	if(typeof name === 'object') {
+		factory=deps; deps=name;
 	}
-	this.Commandor=factory.apply(this, deps.map(function(){
-		return this[deps.substring(deps.lastIndexOf('/')+1)];
+	this.Commandor=factory.apply(this, deps.map(function(dep){
+		return root[dep.substring(deps.lastIndexOf('/')+1)];
 	}));
-});
+}.bind(this));

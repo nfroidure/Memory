@@ -229,10 +229,11 @@
 	return ViewMono;
 
 });})(this,typeof define === 'function' && define.amd ? define : function (name, deps, factory) {
-	if(typeof name === 'Object') {
-		deps=name; factory=deps; name='ViewMono';
+	var root=this;
+	if(typeof name === 'object') {
+		factory=deps; deps=name; name='ViewMono';
 	}
 	this[name.substring(name.lastIndexOf('/')+1)]=factory.apply(this, deps.map(function(dep){
-		return this[dep.substring(dep.lastIndexOf('/')+1)];
+		return root[dep.substring(dep.lastIndexOf('/')+1)];
 	}));
-});
+}.bind(this));

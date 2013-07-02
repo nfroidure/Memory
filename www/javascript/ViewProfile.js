@@ -22,7 +22,7 @@
 			this.app.user={'name':'','gender':-1};
 		// Creating the background image comparison worker
 		this.imageComparer=new Worker('/javascript/Compare.js');
-		this.imageComparer.onmessage=function(event) { console.log('worker',event);
+		this.imageComparer.onmessage=function(event) {
 			if('ok'==event.data) {
 				form.elements.photo2.setCustomValidity('');
 			} else if('notok'==event.data) {
@@ -249,10 +249,11 @@
 	return ViewProfile;
 
 });})(this,typeof define === 'function' && define.amd ? define : function (name, deps, factory) {
-	if(typeof name === 'Object') {
-		deps=name; factory=deps; name='ViewProfile';
+	var root=this;
+	if(typeof name === 'object') {
+		factory=deps; deps=name; name='ViewProfile';
 	}
 	this[name.substring(name.lastIndexOf('/')+1)]=factory.apply(this, deps.map(function(dep){
-		return this[dep.substring(dep.lastIndexOf('/')+1)];
+		return root[dep.substring(dep.lastIndexOf('/')+1)];
 	}));
-});
+}.bind(this));
