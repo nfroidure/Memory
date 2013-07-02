@@ -1,0 +1,22 @@
+{
+	"name": "Memory",
+	"description": "A multiplayer memory game.",
+	"version": "2",
+	"icons": {
+		"16": "icon-16.png",
+		"48": "icon-48.png",
+		"128": "icon-128.png"
+	},
+	"app": {
+		"urls": [
+			"http://memory.insertafter.com/index.html"
+		],
+		"launch": {
+			"web_url": "http://memory.insertafter.com/index.html"
+		}
+	},
+	"permissions": [
+		"unlimitedStorage"
+	],
+	"manifest_version": 2
+}

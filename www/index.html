@@ -10,6 +10,18 @@
 	<script data-main="javascript/Application"
 		src="javascript/libs/requirejs/require.js" type="text/javascript"></script>
 	<!-- -->
+	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-37199172-4']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+	</script>
 </head>
 <body>
 	<div class="app">
@@ -127,7 +139,7 @@
 					<input type="file" accept="image/*" name="photo2" /></label><br />
 					<br /><br />
 					Gender&nbsp;:<br />
-					<label><input type="radio" name="genre" id="aucun" value="-1" checked="checked" />&nbsp;No matter</label>
+					<label><input type="radio" name="genre" id="none" value="-1" checked="checked" />&nbsp;No matter</label>
 					<label><input type="radio" name="genre" id="male" value="1" />&nbsp;Male</label><br/>
 					<label><input type="radio" name="genre" id="female" value="0" />&nbsp;Female</label>
 					<br /><br />
@@ -154,7 +166,7 @@
 				<tbody><tr><td><a href="app:Rooms/join?room=" title="Join this room">Room 1</a></td><td>0/3</td><td>Arcade</td></tr></tbody>
 			</table>
 			<p class="menu">
-				<a href="app:changeView?view=Accueil" title="Back to home">Back</a>
+				<a href="app:changeView?view=Home" title="Back to home">Back</a>
 				<a href="app:changeView?view=Profile" title="Change your profile">Profile</a>
 				<a href="app:changeView?view=NewRoom" title="Create a new room">New</a>
 				<a href="app:Rooms/reload" title="Refresh the rooms list">Rafraîchir</a>

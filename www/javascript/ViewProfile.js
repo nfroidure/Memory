@@ -238,8 +238,10 @@
 	ViewProfile.prototype.uninit=function (app) {
 		var videos=document.querySelectorAll('div.view.selected video.profile');
 		if(videos&&videos.length) {
-			for(var i=videos.length-1; i>=0; i--)
+			for(var i=videos.length-1; i>=0; i--) {
 				videos[i].parentNode.parentNode.removeChild(videos[i].parentNode);
+				videos[i].src=video.mozSrcObject=null;
+			}
 		}
 		View.prototype.uninit.bind(this)();
 	};
