@@ -3,7 +3,8 @@ var http=require('http'),
 	fs=require('fs'),
 	url = require('url'),
 	ws = require('websocket').server,
-	crypto = require('crypto');
+	crypto = require('crypto'),
+	zlib = require('zlib');
 
 // Constants
 const MIME_TYPES={
@@ -80,7 +81,7 @@ var httpServer=http.createServer(function (request, response) {
 			response.end(rooms.map(function(room) {
 				return room.id+','+room.name+','+room.mode
 					+','+room.players.length+','+(room.game?1:0);
-				}).join('\r\n'));
+				}).join('\r\n')+'\r\n');
 			return;
 		} else if('POST'===request.method) {
 			var body = '';
@@ -133,7 +134,8 @@ var httpServer=http.createServer(function (request, response) {
 	} else if(parsedUrl.pathname==='/application.manifest'&&
 		(request.method=='HEAD'||request.method=='GET')) {
 		// parralelizing folder stat
-		var folders=['javascript','images','sounds','css'];
+		var folders=['javascript','javascript/libs/requirejs','javascript/libs/sounds',
+			'javascript/libs/commandor','images','sounds','css'];
 		var listings=[];
 		var foldersLeft=folders.length;
 		folders.forEach(function(name) {
@@ -152,7 +154,8 @@ var httpServer=http.createServer(function (request, response) {
 					response.write('CACHE MANIFEST\n# v 1.0:'+process.pid+'\n\nCACHE:\n/index.html\n');
 					folders.forEach(function(name) {
 						for(var i=listings[name].length-1; i>=0; i--) {
-							if(-1!==listings[name][i].indexOf('.')&&'list.json'!==listings[name][i])
+							var index=listings[name][i].lastIndexOf('.');
+							if(-1!==index&&MIME_TYPES[listings[name][i].substring(index+1)])
 								response.write('/'+name+'/'+listings[name][i]+'\n');
 							}
 						});
@@ -217,13 +220,31 @@ var httpServer=http.createServer(function (request, response) {
 			} else {
 				code=200;
 			}
-			// sending code and headers
-			response.writeHead(code, headers);
 			if('GET'===request.method) {
-				fs.createReadStream(rootDirectory
-				+parsedUrl.pathname,{start: start, end: end})
-				.pipe(response);
+				// setting content encoding
+				if(request.headers['accept-encoding'].match(/\bdeflate\b/)) {
+					headers['Content-Encoding'] = 'deflate';
+					delete headers['Content-Length'];
+				} else if (request.headers['accept-encoding'].match(/\bgzip\b/)) {
+					headers['Content-Encoding'] = 'gzip';
+					delete headers['Content-Length'];
+				}
+				// sending code and headers
+				response.writeHead(code, headers);
+				// getting ofstream
+				var ofstream=fs.createReadStream(rootDirectory
+					+parsedUrl.pathname,{start: start, end: end});
+				if(headers['Content-Encoding']) {
+					ofstream.pipe('gzip'===headers['Content-Encoding']?
+							zlib.createGzip():zlib.createDeflate())
+						.pipe(response);
+				}
+				else {
+					ofstream.pipe(response);
+				}
 			} else {
+				// sending code and headers
+				response.writeHead(code, headers);
 				response.end();
 			}
 		}
