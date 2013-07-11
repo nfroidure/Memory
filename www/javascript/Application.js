@@ -1,5 +1,5 @@
-// for static analysis
-function statique() {
+// for static analysis with r.js
+function staticAnalysis() {
 	require(['ViewProfile','ViewOptions','ViewRooms','ViewRoom','ViewMono','ViewUpdate','ViewConnection','ViewNewRoom']);
 }
 // AMD + global
@@ -85,7 +85,7 @@ function statique() {
 			if(root['View'+name])
 				this.displayedView=new root['View'+name]();
 			else
-				this.displayedView=new View();
+				this.displayedView=new root.View();
 			this.displayedView.init(this,name);
 		} else {
 			// RequireJS fallback
