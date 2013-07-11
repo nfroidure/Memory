@@ -134,8 +134,7 @@ var httpServer=http.createServer(function (request, response) {
 	} else if(parsedUrl.pathname==='/application.manifest'&&
 		(request.method=='HEAD'||request.method=='GET')) {
 		// parralelizing folder stat
-		var folders=['javascript','javascript/libs/requirejs','javascript/libs/sounds',
-			'javascript/libs/commandor','images','sounds','css'];
+		var folders=['images','sounds','css'];
 		var listings=[];
 		var foldersLeft=folders.length;
 		folders.forEach(function(name) {
@@ -160,7 +159,7 @@ var httpServer=http.createServer(function (request, response) {
 							}
 						});
 					// ending the manifest
-					response.end('\nFALLBACK:\n/universes.json /universes.json\n\nNETWORK:\n*\n');
+					response.end('javascript/production.js\n\nFALLBACK:\n/universes.json /universes.json\n\nNETWORK:\n*\n');
 					}
 				});
 			});
@@ -220,7 +219,7 @@ var httpServer=http.createServer(function (request, response) {
 			} else {
 				code=200;
 			}
-			if('GET'===request.method) {
+			if('GET'===request.method&&0===MIME_TYPES[ext].indexOf('text/')) {
 				// setting content encoding
 				if(request.headers['accept-encoding'].match(/\bdeflate\b/)) {
 					headers['Content-Encoding'] = 'deflate';
