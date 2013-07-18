@@ -219,14 +219,16 @@ var httpServer=http.createServer(function (request, response) {
 			} else {
 				code=200;
 			}
-			if('GET'===request.method&&0===MIME_TYPES[ext].indexOf('text/')) {
-				// setting content encoding
-				if(request.headers['accept-encoding'].match(/\bdeflate\b/)) {
-					headers['Content-Encoding'] = 'deflate';
-					delete headers['Content-Length'];
-				} else if (request.headers['accept-encoding'].match(/\bgzip\b/)) {
-					headers['Content-Encoding'] = 'gzip';
-					delete headers['Content-Length'];
+			if('GET'===request.method) {
+				if(0===MIME_TYPES[ext].indexOf('text/')) {
+					// setting content encoding
+					if(request.headers['accept-encoding'].match(/\bdeflate\b/)) {
+						headers['Content-Encoding'] = 'deflate';
+						delete headers['Content-Length'];
+					} else if (request.headers['accept-encoding'].match(/\bgzip\b/)) {
+						headers['Content-Encoding'] = 'gzip';
+						delete headers['Content-Length'];
+					}
 				}
 				// sending code and headers
 				response.writeHead(code, headers);
