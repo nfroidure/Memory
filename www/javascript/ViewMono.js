@@ -150,11 +150,11 @@
 		// Si aucune card selected on garde une référence à celle-ci
 		if(!this.card1) {
 			this.card1=card;
-			this.app.sounds.play('card1');
+			this.app.sounds.play('card');
 		}
 		// sinon, on vérifie si elle sont jemels
 		else {
-			this.app.sounds.play('card2');
+			this.app.sounds.play('card1');
 			this.card2=card;
 			// si elles sont jemel on appelle la méthode gagner
 			// sinon on appelle la méthode perdre

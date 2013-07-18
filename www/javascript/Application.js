@@ -31,8 +31,8 @@ function staticAnalysis() {
 			// play background sound when loaded
 			function() { this.sounds.play('mountainman'); }.bind(this));
 		this.sounds.register('mountainman',['mid','mp3'],Infinity,0.2);
+		this.sounds.register('card',['ogg']);
 		this.sounds.register('card1',['ogg']);
-		this.sounds.register('card2',['ogg']);
 		this.sounds.register('good',['ogg','mp3']);
 		this.sounds.register('bad',['ogg']);
 		this.sounds.register('applause',['ogg']);
