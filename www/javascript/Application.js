@@ -1,20 +1,21 @@
 // for static analysis with r.js
 function staticAnalysis() {
-	require(['ViewProfile','ViewOptions','ViewRooms','ViewRoom','ViewMono','ViewUpdate','ViewConnection','ViewNewRoom']);
+	require(['ViewHome','ViewProfile','ViewOptions','ViewRooms','ViewRoom',
+		'ViewMono','ViewUpdate','ViewConnection','ViewNewRoom']);
 }
 // AMD + global
 (function(root,define){ define('Application',['View','require',
 		'libs/commandor/Commandor','libs/sounds/Sounds'],
 	function (View,require,Commandor,Sounds) {
 
-	// Objet application
+	// Application constructor
 	function Application(rootElement) {
-		// Recherche d'une nouvelle version
+		// Looking for a new version
 		if(window.applicationCache) {
 			window.applicationCache.addEventListener('updateready',function() {
-				// on ne demande la mise à jour
-				// que si le joueur n'est pas entrain de jouer
-				if((!(root.ViewMono||root.ViewMulti))||this.view instanceof root.ViewMono
+				// asking player to update if he's not playing
+				if((!(root.ViewMono||root.ViewMulti))
+					||this.view instanceof root.ViewMono
 					||this.view instanceof root.ViewMulti)
 					this.showView('Update');
 			}.bind(this));
@@ -177,12 +178,15 @@ function staticAnalysis() {
 	// launching the app
 	new Application(document.querySelector('div.app'));
 
-});})(this,typeof define === 'function' && define.amd ? define : function (name, deps, factory) {
+});})(this,typeof define === 'function' && define.amd ?
+		define : function (name, deps, factory) {
 	var root=this;
 	if(typeof name === 'object') {
 		factory=deps; deps=name; name='Application';
 	}
-	this[name.substring(name.lastIndexOf('/')+1)]=factory.apply(this, deps.map(function(dep){
-		return root[dep.substring(dep.lastIndexOf('/')+1)];
-	}));
+	this[name.substring(name.lastIndexOf('/')+1)]=factory.apply(this,
+		deps.map(function(dep){
+			return root[dep.substring(dep.lastIndexOf('/')+1)];
+		})
+	);
 }.bind(this));
