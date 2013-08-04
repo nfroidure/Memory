@@ -159,7 +159,8 @@ var httpServer=http.createServer(function (request, response) {
 							}
 						});
 					// ending the manifest
-					response.end('javascript/production.js\n\nFALLBACK:\n/universes.json /universes.json\n\nNETWORK:\n*\n');
+					response.end('javascript/production.js\njavascript/Compare.js\n'
+						+'/universes.json\n\nFALLBACK:\n\nNETWORK:\n*\n');
 					}
 				});
 			});
@@ -172,8 +173,9 @@ var httpServer=http.createServer(function (request, response) {
 		response.end();
 		return;
 	}
-	// No query params instead for manifest.webapp :'(
-	if('search' in parsedUrl&&'/manifest.webapp'!==parsedUrl.pathname) {
+	// No query params except for manifest.webapp :'(
+	// Bug : https://bugzilla.mozilla.org/show_bug.cgi?id=897226
+	if(parsedUrl.search&&'/manifest.webapp'!==parsedUrl.pathname) {
 		response.writeHead(401);
 		response.end();
 	}
@@ -201,8 +203,10 @@ var httpServer=http.createServer(function (request, response) {
 				response.end();
 				throw Error('Unsupported MIME type ('+ext+')');
 			}
-			headers['Content-Type']=MIME_TYPES[ext];
+			headers['Content-Type']=MIME_TYPES[ext]+(MIME_TYPES[ext].indexOf('text/')?'; charset=UTF-8':'');
 			headers['Content-Length']=result.size;
+			headers['Vary']='Accept-Encoding';
+			headers['Cache-Control']='public, max-age=864000';
 			// Looking for ranged requests
 			if(request.headers.range) {
 				var chunks = request.headers.range.replace(/bytes=/, "").split("-");
@@ -240,8 +244,7 @@ var httpServer=http.createServer(function (request, response) {
 					ofstream.pipe('gzip'===headers['Content-Encoding']?
 							zlib.createGzip():zlib.createDeflate())
 						.pipe(response);
-				}
-				else {
+				} else {
 					ofstream.pipe(response);
 				}
 			} else {
