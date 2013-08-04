@@ -29,6 +29,7 @@ if [ "$2" != "" ]; then
 	cd ..
 	rsync -Haurov --exclude=/.git/ --exclude=/node_modules/ --exclude=/materials/ --exclude=/www/javascript/ ./ "$2:/home/memory/"
 	scp www/javascript/production.js "$2:/home/memory/www/javascript/production.js"
+	scp www/javascript/Compare.js "$2:/home/memory/www/javascript/Compare.js"
 fi
 # Back to the right pwd
 cd "$olPwd"
