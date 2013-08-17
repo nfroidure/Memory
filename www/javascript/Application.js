@@ -1,7 +1,7 @@
 // for static analysis with r.js
 function staticAnalysis() {
 	require(['ViewHome','ViewProfile','ViewOptions','ViewRooms','ViewRoom',
-		'ViewMono','ViewUpdate','ViewConnection','ViewNewRoom']);
+		'ViewMono','ViewUpdate','ViewConnection','ViewNewRoom','ViewMulti']);
 }
 // AMD + global
 (function(root,define){ define('Application',['View','require',

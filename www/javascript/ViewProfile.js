@@ -175,10 +175,10 @@
 		var a=document.createElement('a');
 		a.setAttribute('title','Take a photo');
 		var a2=a.cloneNode();
-		a.setAttribute('href','app:Profil/photo?image=1');
+		a.setAttribute('href','app:Profile/photo?image=1');
 		a.appendChild(video);
 		video.play();
-		a2.setAttribute('href','app:Profil/photo?image=2');
+		a2.setAttribute('href','app:Profile/photo?image=2');
 		a2.appendChild(video.cloneNode());
 		a2.firstChild.play();
 		images[0].parentNode.insertBefore(a,images[0]);
@@ -240,7 +240,7 @@
 		if(videos&&videos.length) {
 			for(var i=videos.length-1; i>=0; i--) {
 				videos[i].parentNode.parentNode.removeChild(videos[i].parentNode);
-				videos[i].src=video.mozSrcObject=null;
+				videos[i].src=videos[i].mozSrcObject=null;
 			}
 		}
 		View.prototype.uninit.bind(this)();
