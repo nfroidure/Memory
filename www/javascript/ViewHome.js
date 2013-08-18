@@ -15,7 +15,7 @@
 		this.command('install');
 		// Checking websockets availability
 		this.buttonMulti=this.content.querySelector('ul.menu li:nth-child(2) a');
-		if('WebSocket' in Window) {
+		if('WebSocket' in window) {
 			this.buttonMulti.style.display='none';
 		} else {
 			this.buttonMulti.style.display='inline-block';
