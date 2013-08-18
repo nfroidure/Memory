@@ -15,10 +15,11 @@
 		this.command('install');
 		// Checking websockets availability
 		this.buttonMulti=this.content.querySelector('ul.menu li:nth-child(2) a');
-		if('WebSocket' in window) {
-			this.buttonMulti.style.display='none';
+		if('WebSocket' in window&&'function' === typeof window.WebSocket
+			&&3 == window.WebSocket.CLOSED) {
+			this.buttonMulti.setAttribute('href','app:changeView?view=Profile');
 		} else {
-			this.buttonMulti.style.display='inline-block';
+			this.buttonMulti.setAttribute('href','app:changeView?view=Websocket');
 		}
 		// Checking installation on Firefox
 		this.buttonInstallation=this.content.querySelector('ul.menu li:nth-child(4) a');
