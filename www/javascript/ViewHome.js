@@ -13,6 +13,13 @@
 		View.prototype.init.bind(this)(app,name);
 		// Registering view commands
 		this.command('install');
+		// Checking websockets availability
+		this.buttonMulti=this.content.querySelector('ul.menu li:nth-child(2) a');
+		if('WebSocket' in Window) {
+			this.buttonMulti.style.display='none';
+		} else {
+			this.buttonMulti.style.display='inline-block';
+		}
 		// Checking installation on Firefox
 		this.buttonInstallation=this.content.querySelector('ul.menu li:nth-child(4) a');
 		this.buttonInstallation.style.display='none';
