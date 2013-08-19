@@ -13,6 +13,8 @@ Requirements
 
 Building
 -------------
+
+Web app :
 ```bash
 # Requirements
 npm install -g requirejs
@@ -21,6 +23,25 @@ npm install -g requirejs
 ./build.sh
 # Dev
 ./dev.sh
+```
+
+Android app :
+Reach the bin dir
+```bash
+cd materials/android/bin
+```
+Generate the key :
+```bash
+keytool -genkey -v -keystore memory-key.keystore -alias memory -keyalg RSA -keysize 2048 -validity 10000
+```
+Build for release :
+```bash
+ant release
+```
+Sign, then align :
+```bash
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore memory-key.keystore Memory-release-unsigned.apk memory
+zipalign -v 4 Memory-release-unsigned.apk Memory-release-signed.apk
 ```
 
 Launching
