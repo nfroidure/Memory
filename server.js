@@ -165,7 +165,12 @@ var httpServer=http.createServer(function (request, response) {
 				});
 			});
 		return;
-		}
+	// Facebook
+	} else if(parsedUrl.pathname==='/fb') {
+		response.writeHead(301,{'Location':'index.html'});
+		response.end();
+		return;
+	}
 
 	// Static contents : read-only access
 	if('HEAD'!==request.method&&'GET'!==request.method) {
