@@ -7,8 +7,8 @@ wget -O http://requirejs.org/docs/release/2.1.6/comments/require.js > www/javasc
 
 # Commandor
 mkdir www/javascript/libs/commandor
-wget -O https://raw.github.com/nfroidure/Commandor/master/Commandor.js > www/javascript/libs/commandor/Commandor.js
-wget -O https://raw.github.com/nfroidure/Commandor/master/CommandPromise.js > www/javascript/libs/commandor/CommandPromise.js
+mkdir www/javascript/libs/commandor/src
+wget -O https://raw.github.com/nfroidure/Commandor/master/src/Commandor.js > www/javascript/libs/commandor/Commandor.js
 
 # Sounds
 mkdir www/javascript/libs/sounds

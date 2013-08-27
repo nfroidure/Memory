@@ -79,7 +79,7 @@
 	ViewRoom.prototype.updatePlayers=function () {
 		this.h1.lastChild.firstChild.textContent=this.app.room.players.length+' /3';
 		if(this.app.room.players.length==3) {
-			this.button.setAttribute('disabled','');
+			this.button.removeAttribute('disabled');
 			// trying to show a notification
 			if('webkitNotifications' in window
 				&&window.webkitNotifications.checkPermission()===0) {
