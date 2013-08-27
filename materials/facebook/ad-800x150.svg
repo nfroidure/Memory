@@ -10,13 +10,13 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1400"
-   height="560"
+   width="800"
+   height="150"
    id="svg2"
    version="1.1"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="breakit-1400x560.svg"
-   inkscape:export-filename="/home/nfroidure/Bureau/LocalServer/elitwork/projects/games/memory/materials/chrome/breakit-1400x560.png"
+   sodipodi:docname="ad-800x150.svg"
+   inkscape:export-filename="ad-800x150.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -123,7 +123,7 @@
          id="stop12067" />
     </linearGradient>
     <linearGradient
-       gradientTransform="matrix(1.5253515,0,0,2.8186135,690.63259,-1119.8479)"
+       gradientTransform="matrix(0.87157132,0,0,0.75443813,394.30225,-1070.149)"
        y2="82.792587"
        x2="37.340424"
        y1="151.79259"
@@ -178,26 +178,12 @@
        sodipodi:type="inkscape:persp3d" />
     <filter
        inkscape:collect="always"
-       id="filter3691">
+       id="filter3691"
+       color-interpolation-filters="sRGB">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="3.5619244"
          id="feGaussianBlur3693" />
-    </filter>
-    <inkscape:perspective
-       id="perspective3716"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <filter
-       inkscape:collect="always"
-       id="filter3678">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.6299502"
-         id="feGaussianBlur3680" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -207,9 +193,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="922.55667"
-     inkscape:cy="274.00891"
+     inkscape:zoom="1"
+     inkscape:cx="501.36595"
+     inkscape:cy="186.31771"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -226,7 +212,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -234,102 +220,69 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-492.36218)">
+     transform="translate(0,-902.36218)">
     <rect
-       y="-1011.3338"
-       x="-0.30726421"
-       height="441.3576"
-       width="1400.7477"
+       y="-1041.1039"
+       x="-0.49420962"
+       height="118.13503"
+       width="800.3739"
        id="rect2234"
        style="fill:url(#linearGradient2949);fill-opacity:1;stroke:none"
        transform="scale(1,-1)" />
     <rect
        style="fill:#000000;fill-opacity:1;stroke:none"
        id="rect2184"
-       width="1400.7477"
-       height="97.197853"
-       x="-0.30726421"
-       y="492.70877" />
+       width="800.3739"
+       height="26.016254"
+       x="-0.49420962"
+       y="902.28711" />
     <path
-       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:2.07349372px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 13.376532,623.77202 C 182.32383,870.80452 332.10073,981.6926 754.68253,838.43509 c 140.11823,-47.5008 367.29367,5.8057 629.98497,33.37487"
+       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:0.81089252px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 7.3245812,937.36792 C 103.85946,1003.4893 189.44056,1033.17 430.89976,994.82525 c 80.06224,-12.7142 209.86811,1.55397 359.96742,8.93315"
        id="path7212"
        sodipodi:nodetypes="csc" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="M -0.3072744,890.13324 C 760.31742,1123.3009 979.32791,859.08886 1400.4403,974.69174 l 0,77.46746 -1400.7475744,0 0,-162.02596 z"
+       d="M -0.49421546,1008.663 C 434.11949,1071.0732 559.26,1000.3535 799.87961,1031.2961 l 0,20.7352 -800.37382546,0 0,-43.3683 z"
        id="rect5208"
        sodipodi:nodetypes="ccccc" />
     <path
-       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:2.07349372px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1380.0915,626.59062 c -114.141,25.7724 -182.4372,99.0789 -308.3068,67.71602 C 591.47907,574.62895 368.34041,809.35733 16.427235,736.51652"
+       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:0.81089252px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 788.25249,938.12236 C 723.03342,945.02067 684.00961,964.64209 612.08892,956.24742 337.64687,924.21415 210.14756,987.04221 9.0677239,967.54544"
        id="path7214"
        sodipodi:nodetypes="csc" />
     <path
-       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:2.07349372px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 1383.1422,778.79572 C 1028.0989,656.36822 712.58185,870.60709 567.03962,719.04159 336.54399,479.00684 145.08366,888.29078 11.85118,798.52605"
+       style="opacity:0.1;fill:none;stroke:#ffffff;stroke-width:0.81089252px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 789.99564,978.86201 C 587.12728,946.09271 406.84385,1003.4365 323.6824,962.86804 191.97939,898.61966 82.580779,1008.1698 6.4530095,984.14308"
        id="path7216"
        sodipodi:nodetypes="csc" />
     <rect
        style="opacity:0.1;fill:#000000;fill-opacity:1;stroke:none"
        id="rect3232"
-       width="1400.4695"
-       height="214.06512"
-       x="-0.22840858"
-       y="584.38629" />
+       width="800.2149"
+       height="57.297279"
+       x="-0.44915229"
+       y="926.82581" />
     <text
-       id="text2886"
+       id="text3679"
        y="694.5025"
        x="970.19269"
-       style="font-size:83.66100310999998158px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans;filter:url(#filter3678)"
-       xml:space="preserve"><tspan
-         id="tspan2888"
+       style="font-size:83.66100311px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;filter:url(#filter3691);font-family:Bitstream Vera Sans"
+       xml:space="preserve"
+       transform="matrix(0.50026738,0,0,0.50026738,-8.9449987,647.56769)"><tspan
+         id="tspan3685"
          y="694.5025"
          x="970.19269"
-         sodipodi:role="line">Memory :</tspan><tspan
-         id="tspan2890"
-         y="799.07874"
-         x="970.19269"
-         sodipodi:role="line">Find you friends</tspan><tspan
-         id="tspan2892"
-         y="903.65503"
-         x="970.19269"
-         sodipodi:role="line">first!</tspan></text>
+         sodipodi:role="line">Break all bricks with class !</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:83.66100311px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="970.19269"
-       y="694.5025"
+       style="font-size:41.85287476px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="476.4108"
+       y="995.00458"
        id="text3009"><tspan
+         id="tspan2892"
          sodipodi:role="line"
-         x="970.19269"
-         y="694.5025"
-         id="tspan3013">Memory :</tspan><tspan
-         sodipodi:role="line"
-         x="970.19269"
-         y="799.07874"
-         id="tspan3017">Find you friends</tspan><tspan
-         sodipodi:role="line"
-         x="970.19269"
-         y="903.65503"
-         id="tspan2884">first!</tspan></text>
-    <g
-       transform="matrix(3.9049176,0,0,3.9049176,60.984213,521.97581)"
-       id="g3703">
-      <polygon
-         points="255.778,512 107.644,470.877 74.633,100.62 437.367,100.62 404.321,470.819 "
-         id="polygon6-9"
-         style="fill:#447821"
-         transform="matrix(0.27437869,0,0,0.27437869,-6.0974455,-19.384568)" />
-      <polygon
-         points="376.03,447.246 404.27,130.894 256,130.894 256,480.523 "
-         id="polygon8-8"
-         style="fill:#5aa02c"
-         transform="matrix(0.27437869,0,0,0.27437869,-6.0974455,-19.384568)" />
-      <path
-         id="path2823"
-         style="font-size:39.51052856px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#cccccc;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:Bitstream Charter Bold"
-         d="m 32.188595,81.202453 11.089415,0 7.753575,-32.607088 7.693469,32.607088 11.14952,0 7.693469,-32.607088 7.753575,32.607088 10.999256,0 -10.57852,-44.868554 -13.343361,0 -8.144258,34.109716 -8.0541,-34.109716 -13.343361,0 -10.668679,44.868554" />
-    </g>
+         x="476.4108"
+         y="995.00458">Break all bricks with class !</tspan></text>
   </g>
 </svg>
