@@ -10,10 +10,6 @@
 		alert('Ooops, you are using an old browser. Please come back with a more recent one.');
 		document.location.href="http://browsehappy.com/";
 	</script><![endif]-->
-	<!-- Requirejs : uncomment for development DEV-->
-	<script data-main="javascript/Application"
-		src="javascript/libs/requirejs/require.js" type="text/javascript"></script>
-	<!-- -->
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
@@ -105,12 +101,15 @@
 		<div class="view" id="About">
 			<h1>About this game</h1>
 			<p class="text">
-				This Memory has been made by <a href="http://insertafter.com/blog.html">Nicolas Froidure</a>
-				to illustrate JavaScript/HTML5 application development in his book. You'll soon find it on the
-				<a href="http://www.ma-editions.com/" title="Go to the editor website">MA Editions</a> website.
+				This Memory has been made by <a href="http://insertafter.com/en/blog.html">Nicolas Froidure</a>
+				to illustrate JavaScript/HTML5 application development in his book 
+				<a href="http://www.amazon.com/JavaScript-Nicolas-Froidure/dp/2822408653"
+					title="Buy on Amazon"><q lang="fr">
+					JavaScript, Le Guide Complet
+				</q></a>.
 			</p>
 			<p class="text">
-				You can reuse and/or modify it for educationnel purposes.
+				You can reuse and/or modify it for educationnal purposes.
 			</p>
 			<p class="menu"><a href="app:changeView?view=Home" title="Back to home">Back</a></p>
 		</div>
@@ -247,8 +246,6 @@
 			</div>
 		</div>
 	</div><div class="separator"></div></div>
-	<!-- Production : comment for development PROD--
 	<script src="javascript/production.js" type="text/javascript"></script>
-	<!-- -->
 </body>
 </html>

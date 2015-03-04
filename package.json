@@ -1,0 +1,36 @@
+{
+  "name": "Memory",
+  "version": "1.0.0",
+  "description": "Find pairs!",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify src/Application.js > www/javascript/production.js",
+    "publish": "buildbranch gh-pages www",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfroidure/Memory"
+  },
+  "keywords": [
+    "memory",
+    "cards"
+  ],
+  "author": "Nicolas Froidure",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nfroidure/Memory/issues"
+  },
+  "homepage": "https://github.com/nfroidure/Memory",
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "buildbranch": "0.0.2"
+  },
+  "dependencies": {
+    "commandor": "^0.1.2",
+    "sounds": "^1.0.2",
+    "websocket": "^1.0.17"
+  }
+}
