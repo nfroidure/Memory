@@ -51,7 +51,7 @@ casper.then(function() {
 
 casper.then(function() {
 	this.echo('The game started');
-	/*function round() {
+	function round() {
 		// Getting the available cards count
 	  var avCards = this.evaluate(function() {
         var elements = __utils__.findAll('#Multi div.cards p:not(.found):not(.selected) a');
@@ -78,11 +78,11 @@ casper.then(function() {
     	console.log('nothing here');
     }
 	}
-	round.call(this);*/
+	round.call(this);
 
-	/*this.waitWhileSelector('#Multi div.cards p:not(.found) a b c', function() {
+	this.waitWhileSelector('#Multi div.cards p:not(.found) a b c', function() {
 		this.echo('No more cards to find.');
-	},Infinity);*/
+	},Infinity);
 	this.echo('Waiting the end of the Game');
 	this.waitUntilVisible('#Room', function() {}, function() {}, Infinity);
 });

@@ -5,10 +5,12 @@
   "main": "server.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/*.mocha.js",
+    "casper": "env PHANTOMJS_EXECUTABLE=\"$(pwd)/node_modules/casperjs/node_modules/phantomjs/bin/phantomjs\" casperjs tests/*.casper.js",
     "build": "browserify src/Application.js > www/javascript/production.js",
     "publish": "buildbranch gh-pages www",
-    "start": "node server.js"
+    "start": "node server.js",
+    "shell": "sh"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,10 @@
   "homepage": "https://github.com/nfroidure/Memory",
   "devDependencies": {
     "browserify": "^9.0.3",
-    "buildbranch": "0.0.2"
+    "buildbranch": "0.0.2",
+    "casperjs": "^1.1.0-beta3",
+    "mocha": "^2.1.0",
+    "request": "^2.53.0"
   },
   "dependencies": {
     "commandor": "^0.1.2",

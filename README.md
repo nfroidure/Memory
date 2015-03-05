@@ -1,28 +1,22 @@
-Memory
-============
+# Memory
 
-Memory is a free game written in HTML5/JavaScript and created during the write of a french book illustrating JavaScript application development.
+Memory is a free game written in HTML5/JavaScript and created during the write
+ of a french book illustrating JavaScript application development.
 
-You can test it on : http://memory.insertafter.com/index.html
+Feel free [to test it](http://memory.insertafter.com/index.html)!
 
-Requirements
--------------
+## Requirements
 * Modern web browser (Chrome, Firefox ...)
 * NodeJS + npm install websocket
 * Libs : RequireJS, Commandor, Sounds.
 
-Building
--------------
+## Build and run the game
 
-Web app :
-```bash
-# Requirements
-npm install -g requirejs
-./libs.sh
-# Build
-./build.sh
-# Dev
-./dev.sh
+First install [NodeJS](http://nodejs.org), then run the following commands:
+```
+ǹpm install
+npm run build
+npm start
 ```
 
 Android app :
@@ -44,16 +38,13 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore memory-key.keys
 zipalign -v 4 Memory-release-unsigned.apk Memory-release-signed.apk
 ```
 
-Launching
--------------
-```bash
-node server.js
-```
-
 Testing
 -------------
 ```bash
-npm install -g request mocha; mocha tests/*.mocha.js
+npm start&
+npm test
+## This next is broken
+npm casper
 ```
 
 Sounds
