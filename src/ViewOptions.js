@@ -4,16 +4,16 @@ var View = require('./View');
 function ViewOptions() { }
 
 // Inherit of View
-ViewOptions.prototype=new View();
+ViewOptions.prototype = new View();
 
 // Initialization
-ViewOptions.prototype.init=function (app,name) {
+ViewOptions.prototype.init = function (app, name) {
 	// Calling the parent method
-	View.prototype.init.bind(this)(app,name);
+	View.prototype.init.bind(this)(app, name);
 	// Registering view commands
 	this.command('send');
 	// Selecting temple elements
-	document.getElementById('sounds').value=(this.app.sounds.muted?0:1);
+	document.getElementById('sounds').value = this.app.sounds.muted ? 0 : 1;
 	document.getElementById('sounds').checked=(document.fullscreenElement
 		||document.mozFullScreenElement||document.webkitFullscreenElement);
 };

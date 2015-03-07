@@ -35,7 +35,7 @@ function Application(rootElement) {
 	this.cmdMgr.suscribe('changeView',
 		this.changeView.bind(this));
 	// instanciating the sound manager and adding sounds
-	this.sounds=new Sounds('sounds',
+	this.sounds = new Sounds('sounds',
 		// play background sound when loaded
 		function() { this.sounds.play('mountainman'); }.bind(this));
 	this.sounds.register('mountainman',['mid','mp3'],Infinity,0.2);
@@ -84,6 +84,7 @@ Application.prototype.changeView=function (event,params) {
 };
 
 Application.prototype.showView=function (name) {
+  this.trackEvent('view', name);
 	// uninitializing previous view
 	if(this.displayedView) {
 		this.displayedView.uninit();
@@ -168,6 +169,13 @@ Application.prototype.disconnect=function () {
 	this.wsConnection.onclose=null;
 	this.wsConnection.close();
 	this.wsConnection=null;
+};
+
+// GA Tracking
+Application.prototype.trackEvent = function() {
+  if('function' === typeof window.ga) {
+    ga.apply(null, ['send', 'event'].concat([].slice.call(arguments, 0)));
+  }
 };
 
 // launching the app

@@ -1,13 +1,14 @@
 // Modules
-var http=require('http'),
-	fs=require('fs'),
-	url = require('url'),
-	ws = require('websocket').server,
-	crypto = require('crypto'),
-	zlib = require('zlib');
+var http = require('http');
+var fs = require('fs');
+var url = require('url');
+var ws = require('websocket').server;
+var crypto = require('crypto');
+var zlib = require('zlib');
 
 // Constants
-const MIME_TYPES={
+const MIME_TYPES = {
+	'txt':'text/plain',
 	'html':'text/html',
 	'js':'text/javascript',
 	'manifest':'text/cache-manifest',
@@ -24,10 +25,9 @@ const MIME_TYPES={
 };
 
 // Global vars
-var rootDirectory=__dirname+'/www', // default directory
-	domain='memory.insertafter.com',
-	port=8124;
-
+var rootDirectory = __dirname + '/www'; // default directory
+var domain = 'memory.insertafter.com';
+var port = 8124;
 
 // Real-time game vars
 // player objects
@@ -217,7 +217,7 @@ var httpServer=http.createServer(function (request, response) {
 				var chunks = request.headers.range.replace(/bytes=/, "").split("-");
 				start = parseInt(chunks[0],10);
 				end =  chunks[1] ? parseInt(chunks[1], 10) :
-					headers['Content-Length']-1; 
+					headers['Content-Length']-1;
 				headers['Content-Range'] = 'bytes ' + start + '-' + end + '/'
 					+ (headers['Content-Length']);
 				headers['Accept-Ranges'] = 'bytes';
@@ -258,7 +258,7 @@ var httpServer=http.createServer(function (request, response) {
 				response.end();
 			}
 		}
-	); 
+	);
 }).listen(port);
 
 console.log('Server started on http://'+domain+':'+port+'/, '

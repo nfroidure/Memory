@@ -8,7 +8,7 @@
     "test": "mocha tests/*.mocha.js",
     "casper": "env PHANTOMJS_EXECUTABLE=\"$(pwd)/node_modules/casperjs/node_modules/phantomjs/bin/phantomjs\" casperjs tests/*.casper.js",
     "build": "browserify src/Application.js > www/javascript/production.js",
-    "publish": "buildbranch gh-pages www",
+    "publish": "buildbranch gh-pages www memory.insertafter.com",
     "start": "node server.js",
     "shell": "sh"
   },
