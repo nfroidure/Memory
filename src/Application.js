@@ -84,7 +84,7 @@ Application.prototype.changeView=function (event,params) {
 };
 
 Application.prototype.showView=function (name) {
-  this.trackEvent('view', name);
+  this.trackEvent('nav', 'view', name);
 	// uninitializing previous view
 	if(this.displayedView) {
 		this.displayedView.uninit();
@@ -172,7 +172,7 @@ Application.prototype.disconnect=function () {
 };
 
 // GA Tracking
-Application.prototype.trackEvent = function() {
+Application.prototype.trackEvent = function(category, action, label, value) {
   if('function' === typeof window.ga) {
     ga.apply(null, ['send', 'event'].concat([].slice.call(arguments, 0)));
   }

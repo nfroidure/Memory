@@ -7,9 +7,9 @@ function ViewMono() { }
 ViewMono.prototype=new View();
 
 // Initialization
-ViewMono.prototype.init=function (app,name) {
+ViewMono.prototype.init=function (app, name) {
 	// Calling the parent method
-	View.prototype.init.bind(this)(app,name);
+	View.prototype.init.bind(this)(app, name);
 	// Registering view commands
 	this.command('reveal');
 	this.command('replay');
@@ -35,6 +35,7 @@ ViewMono.prototype.init=function (app,name) {
 ViewMono.prototype.replay=function () {
 	// Reset levels
 	this.level.textContent=1;
+  this.app.trackEvent('game', 'new', name);
 	// distributing cards
 	this.distribute();
 };
@@ -100,6 +101,7 @@ ViewMono.prototype.distribute=function () {
 	}
 	else
 		this.updateTimeLeft();
+  this.app.trackEvent('game', 'distribute', universeName, parseInt(this.level.textContent,10));
 };
 
 // updating the countdown
@@ -174,7 +176,8 @@ ViewMono.prototype.loose=function () {
 	this.card1=null;
 	this.card2=null;
 	// adding a attempt
-	this.attempts.textContent=parseInt(this.attempts.textContent,10)+1;
+	this.attempts.textContent=parseInt(this.attempts.textContent, 10) + 1;
+  this.app.trackEvent('game', 'attempt', 'bad', parseInt(this.attempts.textContent, 10));
 };
 
 // found a pair
@@ -190,6 +193,8 @@ ViewMono.prototype.win=function () {
 	this.card2=null;
 	// adding pair to found items
 	this.pairsFound++;
+  this.app.trackEvent('game', 'attempt', 'good', parseInt(this.attempts.textContent, 10));
+  this.app.trackEvent('game', 'pair', '', this.pairsFound);
 	// if every pairs are found
 	if(this.pairsFound==this.cards.length/2) {
 		this.level.textContent=parseInt(this.level.textContent,10)+1;
@@ -197,6 +202,7 @@ ViewMono.prototype.win=function () {
 		this.timeoutTemps=null;
 		this.app.sounds.play('applause');
 		this.app.showMessage('You win!',1500,this.distribute.bind(this));
+    this.app.trackEvent('game', 'victory', '', parseInt(this.attempts.textContent, 10));
 	}
 };
 
@@ -226,3 +232,4 @@ ViewMono.prototype.uninit=function (app) {
 };
 
 module.exports = ViewMono;
+
