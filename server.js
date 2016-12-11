@@ -27,7 +27,7 @@ const MIME_TYPES = {
 // Global vars
 var rootDirectory = __dirname + '/www'; // default directory
 var domain = 'memory.insertafter.com';
-var port = 8124;
+var port = process.env.PORT || 8124;
 
 // Real-time game vars
 // player objects
